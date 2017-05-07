@@ -33,13 +33,13 @@ class UserMessages extends Component {
 
 	render() {
     let inputBoxStyle = {
-      marginTop: "80%",
+      marginTop: "51%",
       width : "90%",
       position : "absolute",
       float: "left"
     }
     let buttonStyle = {
-      marginTop: "80%",
+      marginTop: "51%",
       marginLeft: "90%",
       width : "10%",
       height : "8%",
