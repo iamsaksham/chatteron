@@ -7,7 +7,7 @@ export default function list(state = [], action) {
       let message = {
         login: "iamsaksham",
         mid: mid,
-        uid: 11,
+        uid: 13564312,
         avatar_url: "https://avatars1.githubusercontent.com/u/13564312?v=3",
         message: action.msg
       }
