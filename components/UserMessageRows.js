@@ -20,27 +20,38 @@ class UserMessageRows extends Component {
       overflowY: "scroll"
     }
     let userRowStyle;
+    let avatar;
     let message_rows = [];
-    // console.log(t.props.messages)
+    let avatarStyle = {
+      float : "left",
+      maxHeight: '30px',
+      maxWidth: '30px',
+      borderRadius: "50%"
+    }
     if(t.props.messages) {
       t.props.messages.filter(function(message) {
-        if(message.get('uid') === t.props.user.get('id')) {
+        if(message.get('uid') === t.props.user.get('id')) { // self message
           userRowStyle = {
             cursor: "pointer",
-            padding: "0 0 10px 12px",
+            padding: "0 12px 10px 0",
             textAlign: "right",
             width: "100%"
           }
+          avatar = null;
         } else {
           userRowStyle = {
             cursor: "pointer",
-            padding: "0 0 10px 12px",
+            padding: "0 0 17px 12px",
             textAlign: "left",
             width: "100%"
           }
+          avatar = <img src={message.get('avatar_url')} className="user-avatar" style={avatarStyle}></img>
         }
         message_rows.push(
-          <div key={message.get('mid')} className="message-rows" style={userRowStyle}>{message.get('message')}</div>
+          <div key={message.get('mid')} className="message-wrapper" style={userRowStyle}>
+            {avatar}
+            <div className="message-rows" style={{marginLeft: "40px"}}>{message.get('message')}</div>
+          </div>
         )
       });
     }
