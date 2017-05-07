@@ -3,11 +3,10 @@ import axios from 'axios'
 import Immutable from 'immutable'
 
 class UserList extends Component {
-
   constructor(props, context) {
     super(props, context)
     this.state = {
-      inputText: ''
+      searchKey: ''
     }
   }
 
@@ -18,6 +17,12 @@ class UserList extends Component {
     })
   }
 
+  handleChange(e) {
+    this.setState({
+      searchKey : e.target.value
+    })
+  }
+
 	render() {
     let t = this;
     let listStyle = {
@@ -25,9 +30,8 @@ class UserList extends Component {
       width : "30%",
       position : "absolute",
       float: "left",
-      height: "80%",
+      height: "74%",
       overflowY: "scroll"
-
     }
     let userRowStyle = {
       width : "100%",
@@ -40,23 +44,30 @@ class UserList extends Component {
       maxWidth: '30px',
       borderRadius: "50%"
     }
+    let searchBoxStyle = {
+      float : "left",
+      width : "30%",
+    }
     let user_rows = [];
-    // console.log(this.props.list.get('list'))
+    let regex = new RegExp(this.state.searchKey, 'i');
     if(t.props.list.get('list')) {
       t.props.list.get('list').filter(function(user) {
-        // if(user.get('login') && user.get('login').search(regex) > -1){
+        if(user.get('login').search(regex) > -1){
           user_rows.push(
             <div key={user.get('id')} className="user-row-element" style={userRowStyle}>
               <img src={user.get('avatar_url')} className="user-avatar" style={avatarStyle}></img>
               <div className="user-rows" style={{marginLeft: "40px"}}>{user.get('login')}</div>
             </div>
           )
-        // }
+        }
       });
     }
 
 		return (
-      <div className="user-list" style={listStyle}>{user_rows}</div>
+      <div className="user-list-box" >
+        <input type="text" style={searchBoxStyle} className="search-box" placeholder="Search for a participant" onChange={this.handleChange.bind(this)}/>
+        <div className="user-list" style={listStyle}>{user_rows}</div>
+      </div>
     )
 	}
 
