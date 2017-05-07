@@ -7,7 +7,6 @@ class UserMessages extends Component {
 
 	render() {
     let chatBoxStyle = {
-      marginTop: "4%",
       width : "70%",
       marginLeft : "30%",
       position : "absolute",
