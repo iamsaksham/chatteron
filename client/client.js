@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 
 // provider connects store to actual components
 
+// Default static data
 const initialState = {
     user: Immutable.fromJS({
       login: "iamsaksham",
@@ -72,7 +73,21 @@ const initialState = {
         uid: 4,
         avatar_url: "https://avatars3.githubusercontent.com/u/4?v=3",
         message: "Thankyou for raising the ticket"
-      })
+      }),
+      m8: Immutable.fromJS({
+        login: "wycats",
+        mid: "m8",
+        uid: 4,
+        avatar_url: "https://avatars3.githubusercontent.com/u/4?v=3",
+        message: "Do you want to chat with me?"
+      }),
+      m9: Immutable.fromJS({
+        login: "iamsaksham",
+        mid: "m9",
+        uid: 13564312,
+        avatar_url: "https://avatars1.githubusercontent.com/u/13564312?v=3",
+        message: "Ok, lets do it"
+      }),
     }),
     list: Immutable.Map({})
   };

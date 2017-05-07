@@ -30,9 +30,15 @@ class UserList extends Component {
 
     }
     let userRowStyle = {
-      width : "30%",
+      width : "100%",
       cursor: "pointer",
       padding: "0 0 20px 12px"
+    }
+    let avatarStyle = {
+      float : "left",
+      maxHeight: '30px',
+      maxWidth: '30px',
+      borderRadius: "50%"
     }
     let user_rows = [];
     // console.log(this.props.list.get('list'))
@@ -40,7 +46,10 @@ class UserList extends Component {
       t.props.list.get('list').filter(function(user) {
         // if(user.get('login') && user.get('login').search(regex) > -1){
           user_rows.push(
-            <div key={user.get('id')} className="user-rows" style={userRowStyle}>{user.get('login')}</div>
+            <div key={user.get('id')} className="user-row-element" style={userRowStyle}>
+              <img src={user.get('avatar_url')} className="user-avatar" style={avatarStyle}></img>
+              <div className="user-rows" style={{marginLeft: "40px"}}>{user.get('login')}</div>
+            </div>
           )
         // }
       });
