@@ -35,7 +35,7 @@ class UserList extends Component {
       padding: "0 0 20px 12px"
     }
     let user_rows = [];
-    console.log(this.props.list.get('list'))
+    // console.log(this.props.list.get('list'))
     if(t.props.list.get('list')) {
       t.props.list.get('list').filter(function(user) {
         // if(user.get('login') && user.get('login').search(regex) > -1){
