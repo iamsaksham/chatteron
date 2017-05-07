@@ -50,7 +50,7 @@ class UserMessageRows extends Component {
         message_rows.push(
           <div key={message.get('mid')} className="message-wrapper" style={userRowStyle}>
             {avatar}
-            <div className="message-rows" style={{marginLeft: "40px"}}>{message.get('message')}</div>
+            <div className="message-rows" style={{marginLeft: "40px", wordWrap: "break-word"}}>{message.get('message')}</div>
           </div>
         )
       });
