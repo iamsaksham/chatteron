@@ -21,13 +21,12 @@ class UserMessageRows extends Component {
     }
     let userRowStyle;
     let message_rows = [];
-    // console.log(t.props.messages)
     if(t.props.messages) {
       t.props.messages.filter(function(message) {
         if(message.get('uid') === t.props.user.get('id')) {
           userRowStyle = {
             cursor: "pointer",
-            padding: "0 0 10px 12px",
+            padding: "0 12px 10px 0",
             textAlign: "right",
             width: "100%"
           }

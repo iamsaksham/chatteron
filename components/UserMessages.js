@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import Immutable from 'immutable'
 import UserInputBox from './UserInputBox'
 import UserMessageRows from './UserMessageRows'
