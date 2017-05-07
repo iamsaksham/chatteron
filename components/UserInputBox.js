@@ -38,14 +38,24 @@ class UserMessages extends Component {
       position : "absolute",
       float: "left"
     }
+    let buttonStyle = {
+      marginTop: "80%",
+      marginLeft: "90%",
+      width : "10%",
+      height : "8%",
+      position : "absolute"
+    }
 		return (
-      <textarea style={inputBoxStyle}
-        className="user-textbox-input"
-        onChange={this.emitChange.bind(this)}
-        placeholder="Type and Send Message..."
-        value={this.state.msg}
-        onKeyDown={this.handleKeyDown.bind(this)} >
-      </textarea>
+      <div className="footer">
+        <textarea style={inputBoxStyle}
+          className="user-textbox-input"
+          onChange={this.emitChange.bind(this)}
+          placeholder="Type and Send Message..."
+          value={this.state.msg}
+          onKeyDown={this.handleKeyDown.bind(this)} >
+        </textarea>
+        <button onClick={this.handleClick.bind(this)} style={buttonStyle}>Send</button>
+      </div>
     )
 	}
 
